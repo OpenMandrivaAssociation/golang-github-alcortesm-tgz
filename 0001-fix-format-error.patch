@@ -1,0 +1,27 @@
+From f88a2cdd61a4481a35a7320a07fb8d809d31618e Mon Sep 17 00:00:00 2001
+From: Dominik 'Rathann' Mierzejewski <dominik@greysector.net>
+Date: Tue, 3 Apr 2018 13:15:33 +0200
+Subject: [PATCH] fix format error
+
+Fixes:
+./tgz_test.go:87: Fatalf format %s reads arg #2, but call has only 1 arg
+---
+ tgz_test.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tgz_test.go b/tgz_test.go
+index a12a22a..299e928 100644
+--- a/tgz_test.go
++++ b/tgz_test.go
+@@ -84,7 +84,7 @@ func TestExtract(t *testing.T) {
+ 
+ 		path, err := Extract(test.tgz)
+ 		if err != nil {
+-			t.Fatalf("%s: unexpected error extracting: %s", err)
++			t.Fatalf("%s: unexpected error extracting: %s", com, err)
+ 		}
+ 
+ 		obt, err := relativeTree(path)
+-- 
+2.14.3
+
